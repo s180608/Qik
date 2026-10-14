@@ -1,0 +1,78 @@
+{
+  "cli": {
+    "version": ">=16.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development-customer": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "QIK_APP_VARIANT": "customer",
+        "EXPO_PUBLIC_APP_VARIANT": "customer"
+      }
+    },
+    "development-rider": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "QIK_APP_VARIANT": "rider",
+        "EXPO_PUBLIC_APP_VARIANT": "rider"
+      }
+    },
+    "preview-customer": {
+      "distribution": "internal",
+      "environment": "preview",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "QIK_APP_VARIANT": "customer",
+        "EXPO_PUBLIC_APP_VARIANT": "customer"
+      }
+    },
+    "preview-rider": {
+      "distribution": "internal",
+      "environment": "preview",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "QIK_APP_VARIANT": "rider",
+        "EXPO_PUBLIC_APP_VARIANT": "rider"
+      }
+    },
+    "simulator-customer": {
+      "extends": "preview-customer",
+      "ios": {
+        "simulator": true
+      }
+    },
+    "simulator-rider": {
+      "extends": "preview-rider",
+      "ios": {
+        "simulator": true
+      }
+    },
+    "production-customer": {
+      "environment": "production",
+      "autoIncrement": true,
+      "env": {
+        "QIK_APP_VARIANT": "customer",
+        "EXPO_PUBLIC_APP_VARIANT": "customer"
+      }
+    },
+    "production-rider": {
+      "environment": "production",
+      "autoIncrement": true,
+      "env": {
+        "QIK_APP_VARIANT": "rider",
+        "EXPO_PUBLIC_APP_VARIANT": "rider"
+      }
+    }
+  },
+  "submit": {
+    "production-customer": {},
+    "production-rider": {}
+  }
+}

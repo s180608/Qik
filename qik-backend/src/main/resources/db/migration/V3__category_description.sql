@@ -1,0 +1,1 @@
+ALTER TABLE categories ALTER COLUMN description SET DATA TYPE VARCHAR(500);

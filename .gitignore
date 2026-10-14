@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+qik-backend/target/
+.idea/
+.DS_Store
+*.log
+artifacts/
+
+node_modules/
+.expo/
+qik-mobile/dist/
+qik-mobile/ios/
+qik-mobile/android/

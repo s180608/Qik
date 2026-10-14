@@ -1,0 +1,45 @@
+# Free, temporary demo. Review current limits before applying.
+services:
+  - type: web
+    name: qik-demo
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_HOST
+        fromDatabase:
+          name: qik-demo-db
+          property: host
+      - key: DATABASE_PORT
+        fromDatabase:
+          name: qik-demo-db
+          property: port
+      - key: DATABASE_NAME
+        fromDatabase:
+          name: qik-demo-db
+          property: database
+      - key: DATABASE_USER
+        fromDatabase:
+          name: qik-demo-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: qik-demo-db
+          property: password
+      - key: JWT_SECRET
+        sync: false
+      - key: DEMO_PASSWORD
+        sync: false
+      - key: SPRING_PROFILES_ACTIVE
+        value: demo
+      - key: JAVA_TOOL_OPTIONS
+        value: -XX:MaxRAMPercentage=60.0 -XX:+ExitOnOutOfMemoryError
+databases:
+  - name: qik-demo-db
+    plan: free
+    region: frankfurt
+    databaseName: qik
+    user: qik
+    ipAllowList: []
